@@ -25,16 +25,28 @@ def print_answer(answer_number: int, answer_value: str) -> None:
 
 def question1():
     # 1. How many men and women were traveling by ship?
-
-    print(data['Sex'].value_counts())  # clear solution
-
-    male = data[data.Sex == 'male'].__len__()
-    female = data[data.Sex == 'female'].__len__()
-    answer1 = male.__str__() + " " + female.__str__()
+    counts = data['Sex'].value_counts()
+    answer1 = '{} {}'.format(counts['male'], counts['female'])
     print_answer(1, answer1)
 
 
-data = pandas.read_csv('titanic.csv', index_col='PassengerId')
-print("start work with question1 : 01-titanic-assignment")
+def question2():
+    # What part of the passengers managed to survive?
+    survived_counts = data['Survived'].value_counts()
+    all_passengers = survived_counts.sum()
+    part_survived_percents = survived_counts[1] * 100 / all_passengers
+    answer2 = '{:.2f}'.format(part_survived_percents)
+    print_answer(2, answer2)
 
-# question1()  # SOLVED!
+
+#
+#
+#
+
+data = pandas.read_csv('titanic.csv', index_col='PassengerId')
+# print("start work with question1 : 01-titanic-assignment")
+print(data.columns)
+# print(data.describe())
+
+# question1()
+question2()
