@@ -39,6 +39,9 @@ def question2():
     print_answer(2, answer2)
 
 
+def question3():
+    pass
+
 #
 #
 #
@@ -49,4 +52,5 @@ print(data.columns)
 # print(data.describe())
 
 # question1()
-question2()
+# question2()
+question3()
